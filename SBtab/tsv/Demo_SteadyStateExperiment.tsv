@@ -1,0 +1,3 @@
+!!SBtab	Document='Demo' TableName='E0' TableTitle='forces the model into a steady state' TableType='QuantityMatrix'							
+!TimePoint	!Time	>YSSS0	>YSSS1	>YSSS2	>YSSS3	>YSSS4	>YSSS5	>GAMMA
+E0T0	0	0	0	0	0	0	0	0.001

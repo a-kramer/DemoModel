@@ -1,0 +1,4 @@
+!!SBtab	TableName='Constant' TableType='Quantity' TableTitle='Demo model constants' SBtabVersion='1.0' Document='Demo' 			
+!ID	!Name	!Unit	!Value	!Description
+C0	S	1	1E-06	prevents infinite ratios
+C1	inv_tau	1	1000	tau is the scale for activation (how quickly inputs turn on)

@@ -1,0 +1,14 @@
+!!SBtab	SBtabVersion='1.0' TableName='Parameter' TableTitle='Independent parameters within the model' TableType='Quantity'  Document='Demo'				
+!ID	!Name	!DefaultValue	!Std	!Scale	!Unit
+K1	kf_R0	0	2.5	natural logarithm	1/s
+K2	kr_R0	0	2.5	natural logarithm	1/s
+K3	kf_R1	0	2.5	natural logarithm	1/s
+K4	kr_R1	0	2.5	natural logarithm	1/s
+K5	kf_R2	0	2.5	natural logarithm	1/s
+K6	kr_R2	0	2.5	natural logarithm	1/s
+K7	kf_R3	0	2.5	natural logarithm	1/s
+K8	kr_R3	0	2.5	natural logarithm	2/s
+K9	kf_R4	0	2.5	natural logarithm	2/s
+K10	kr_R4	0	2.5	natural logarithm	3/s
+%K11	kf_R5	0	2.5	natural logarithm	3/s
+%K12	kr_R5	0	2.5	natural logarithm	4/s

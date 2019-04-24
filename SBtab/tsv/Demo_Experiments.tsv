@@ -1,0 +1,4 @@
+!!SBtab	SBtabVersion='1.0' TableName='Experiments' TableTitle='Model Inputs and Measurement Mapping. A negative value indicates that this input varies in the dose response curve' TableType='QuantityMatrix'  Document='Demo'			
+!ID	!Name	!Type	>U0	>U1
+E0	SteadyStateExperiment	Time Series	0	10
+E1	TargetRatio	Time Series	1	-0.01

@@ -1,0 +1,12 @@
+!!SBtab	SBtabVersion='1.0' TableName='Output' TableTitle='Model output functions' TableType='Quantity' Document='Demo'							
+!ID	!Name	!ErrorName	!ErrorType	!ProbDist	!Type	!Unit	!Formula	!Comment
+Y0	ABCoverSUM	SD_Y0	standard deviation	Normal	ratio	1	ABC/(A+B+C+S)	
+YCL1	C_mon	SD_YCL1	not applicable	Normal		nM	C	monitors implicit state
+YCL2	B_mon	SD_YCL2	not applicable	Normal		nM	B	monitors implicit state
+YCL3	A_mon	SD_YCL3	not applicable	Normal		nM	A	monitors implicit state
+YSSS0	A_NetFlux	GAMMA	WeightFactor	Normal		nM	-ReactionFlux0-ReactionFlux1	measures deviation from steady state
+YSSS1	B_NetFlux	GAMMA	WeightFactor	Normal		nM	-ReactionFlux0-ReactionFlux3	measures deviation from steady state
+YSSS2	C_NetFlux	GAMMA	WeightFactor	Normal		nM	-ReactionFlux1-ReactionFlux2	measures deviation from steady state
+YSSS3	AB_NetFlux	GAMMA	WeightFactor	Normal		nM	+ReactionFlux0-ReactionFlux2	measures deviation from steady state
+YSSS4	AC_NetFlux	GAMMA	WeightFactor	Normal		nM	+ReactionFlux1-ReactionFlux3	measures deviation from steady state
+YSSS5	ABC_NetFlux	GAMMA	WeightFactor	Normal		nM	+ReactionFlux2+ReactionFlux3	measures deviation from steady state

@@ -1,0 +1,7 @@
+!!SBtab	SBtabVersion='1.0' TableName='Input' TableTitle='Input Parameter List' TableType='Quantity'  Document='Demo'				
+!ID	!Name	!DefaultValue	!Unit	!ConservationLaw	!Comment
+U0	u	1	nM	FALSE	
+U1	t_on	0	s	FALSE	
+CLU1	C_ConservedConst	10	nM	TRUE	C_ConservedConst = C+1*AC+1*ABC
+CLU2	B_ConservedConst	10	nM	TRUE	B_ConservedConst = B+1*AB+1*ABC
+CLU3	A_ConservedConst	1000	nM	TRUE	A_ConservedConst = A+1*AB+1*AC+1*ABC
