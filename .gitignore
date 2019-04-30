@@ -1,3 +1,6 @@
+*.log
+*.err
+
 # Prerequisites
 *.d
 

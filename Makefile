@@ -16,26 +16,21 @@ all: ./C/$(MODEL).so ./vfgen/$(MODEL)_vf.xml ./data/$(MODEL).h5 ./matlab/$(MODEL
 clean:
 	rm ./C/$(MODEL).so ./data/$(MODEL).h5 ./matlab/$(MODEL)_*.m ./SBtab/tsv/$(MODEL)_*.tsv ./C/$(MODEL)_cvs.[ch] ./vfgen/$(MODEL)_vf.xml
 
-./C/$(MODEL)_cvs.c: ./vfgen/$(MODEL)_vf.xml C
+./C/$(MODEL)_cvs.c: ./vfgen/$(MODEL)_vf.xml
 	cd ./C && $(VFGEN) cvodes:func=yes,sens=yes ../vfgen/$(MODEL)_vf.xml
 
-./C/$(MODEL).so: ./C/$(MODEL)_cvs.c C
+./C/$(MODEL).so: ./C/$(MODEL)_cvs.c
 	$(CC) -shared -fPIC -O2 $< -o $@
 
-./vfgen/$(MODEL)_vf.xml: ./SBtab/$(MODEL).ods vfgen
+./vfgen/$(MODEL)_vf.xml: ./SBtab/$(MODEL).ods
 	 cd ./vfgen && ../SBtab_R_vfgen.R ../SBtab/$(MODEL).ods
 
-./data/$(MODEL).h5: ./SBtab/tsv/$(MODEL)_Experiments.tsv data
+./data/$(MODEL).h5: ./SBtab/tsv/$(MODEL)_Experiments.tsv
 	cd ./data/ && $(TSV_TO_H5) ../SBtab/tsv/*.tsv $(MODEL).h5 > ../sbtab_to_hdf5.log
 
-./matlab/$(MODEL)_vf.m: ./vfgen/$(MODEL)_vf.xml matlab
+./matlab/$(MODEL)_vf.m: ./vfgen/$(MODEL)_vf.xml
 	cd ./matlab/ && $(VFGEN) matlab:func=yes ../vfgen/$(MODEL)_vf.xml
 
 ./SBtab/tsv/$(MODEL)_Experiments.tsv: ./SBtab/$(MODEL).ods ./SBtab/tsv
 	cd ./SBtab/tsv && $(ODS_TO_TSV) ../$(MODEL).ods
 
-data C matlab vfgen:
-	mkdir $@
-
-./SBtab/tsv:
-	mkdir ./SBtab/tsv

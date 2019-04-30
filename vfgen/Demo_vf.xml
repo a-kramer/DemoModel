@@ -2,23 +2,23 @@
 <VectorField Name="Demo" Description="model created by an R script «sbtab_to_vfgen.R» (https://github.com/a-kramer/SBtabVFGEN)">
  <Constant Name="S" Description="constant C0" Value="1.00E-06"/>
  <Constant Name="inv_tau" Description="constant C1" Value="1.00E+03"/>
- <Parameter Name="kf_R0" Description="independent parameter K1" DefaultValue="0.00"/>
- <Parameter Name="kr_R0" Description="independent parameter K2" DefaultValue="0.00"/>
- <Parameter Name="kf_R1" Description="independent parameter K3" DefaultValue="0.00"/>
- <Parameter Name="kr_R1" Description="independent parameter K4" DefaultValue="0.00"/>
- <Parameter Name="kf_R2" Description="independent parameter K5" DefaultValue="0.00"/>
- <Parameter Name="kr_R2" Description="independent parameter K6" DefaultValue="0.00"/>
- <Parameter Name="kf_R3" Description="independent parameter K7" DefaultValue="0.00"/>
- <Parameter Name="kr_R3" Description="independent parameter K8" DefaultValue="0.00"/>
- <Parameter Name="kf_R4" Description="independent parameter K9" DefaultValue="0.00"/>
- <Parameter Name="kr_R4" Description="independent parameter K10" DefaultValue="0.00"/>
- <Parameter Name="kf_R5" Description="independent parameter %K11" DefaultValue="0.00"/>
- <Parameter Name="kr_R5" Description="independent parameter %K12" DefaultValue="0.00"/>
+ <Parameter Name="kf_R0" Description="independent parameter K1" DefaultValue="1"/>
+ <Parameter Name="kr_R0" Description="independent parameter K2" DefaultValue="1"/>
+ <Parameter Name="kf_R1" Description="independent parameter K3" DefaultValue="1"/>
+ <Parameter Name="kr_R1" Description="independent parameter K4" DefaultValue="1"/>
+ <Parameter Name="kf_R2" Description="independent parameter K5" DefaultValue="1"/>
+ <Parameter Name="kr_R2" Description="independent parameter K6" DefaultValue="1"/>
+ <Parameter Name="kf_R3" Description="independent parameter K7" DefaultValue="1"/>
+ <Parameter Name="kr_R3" Description="independent parameter K8" DefaultValue="1"/>
+ <Parameter Name="kf_R4" Description="independent parameter K9" DefaultValue="1"/>
+ <Parameter Name="kr_R4" Description="independent parameter K10" DefaultValue="1"/>
+ <Parameter Name="kf_R5" Description="independent parameter %K11" DefaultValue="1"/>
+ <Parameter Name="kr_R5" Description="independent parameter %K12" DefaultValue="1"/>
  <Parameter Name="u" Description="input parameter U0" DefaultValue="1"/>
  <Parameter Name="t_on" Description="input parameter U1" DefaultValue="0"/>
- <Parameter Name="C_ConservedConst" Description="conserved quantity; eliminates C as a state variable" DefaultValue="10.000000"/>
- <Parameter Name="B_ConservedConst" Description="conserved quantity; eliminates B as a state variable" DefaultValue="10.000000"/>
- <Parameter Name="A_ConservedConst" Description="conserved quantity; eliminates A as a state variable" DefaultValue="1000.000000"/>
+ <Parameter Name="C_ConservedConst" Description="conserved quantity eliminates C as a state variable" DefaultValue="10.000000"/>
+ <Parameter Name="B_ConservedConst" Description="conserved quantity eliminates B as a state variable" DefaultValue="10.000000"/>
+ <Parameter Name="A_ConservedConst" Description="conserved quantity eliminates A as a state variable" DefaultValue="1000.000000"/>
  <Expression Name="C" Description="derived from conservation law 1" Formula="C_ConservedConst - (AC+1*ABC)"/>
  <Expression Name="B" Description="derived from conservation law 2" Formula="B_ConservedConst - (AB+1*ABC)"/>
  <Expression Name="A" Description="derived from conservation law 3" Formula="A_ConservedConst - (AB+1*AC+1*ABC)"/>
