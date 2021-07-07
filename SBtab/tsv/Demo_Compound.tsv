@@ -1,8 +1,8 @@
 !!SBtab	TableName='Compound' TableType='Compound' TableTitle='Demo Compounds' SBtabVersion='1.0' Document='Demo'  Document='Demo'								
 !ID	!Name	!Unit	!InitialValue	!Flux	!IsConstant	!Type	!Location	!IsInput	!SteadyState
-S0	A	uM	1000		FALSE	kinetic	Volume	FALSE	TRUE
-S1	B	uM	10		FALSE	kinetic	Volume	FALSE	TRUE
-S2	C	uM	10		FALSE	kinetic	Volume	FALSE	TRUE
-S3	AB	uM	0		FALSE	kinetic	Volume	FALSE	TRUE
-S4	AC	uM	0		FALSE	kinetic	Volume	FALSE	TRUE
-S5	ABC	uM	0		FALSE	kinetic	Volume	FALSE	TRUE
+S0	A	micromole/liter	1000		FALSE	kinetic	Volume	FALSE	TRUE
+S1	B	micromole/liter	10		FALSE	kinetic	Volume	FALSE	TRUE
+S2	C	micromole/liter	10		FALSE	kinetic	Volume	FALSE	TRUE
+S3	AB	micromole/liter	0		FALSE	kinetic	Volume	FALSE	TRUE
+S4	AC	micromole/liter	0		FALSE	kinetic	Volume	FALSE	TRUE
+S5	ABC	micromole/liter	0		FALSE	kinetic	Volume	FALSE	TRUE
