@@ -1,0 +1,14 @@
+Type: Compendium
+Package: Demo Model
+Title: What the Package Does (One Line, Title Case)
+Version: 0.0.1
+Authors@R: 
+    person(given = "Andrei",
+           family = "Kramer-Miehe",
+           role = c("aut", "cre"),
+           email = "anrei.kramer@scilifelab.se")
+Description: A model that only serves to demonstrate SBtab and conversions
+License: GPL (>=3)
+Remotes: a-kramer/SBtabVFGEN
+Encoding: UTF-8
+LazyData: true
