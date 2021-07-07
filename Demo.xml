@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2/version4" level="2" version="4">
+  <model id="Demo">
+    <listOfUnitDefinitions>
+      <unitDefinition id="time">
+        <listOfUnits>
+          <unit kind="second" exponent="1" scale="-3" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="substance">
+        <listOfUnits>
+          <unit kind="mole" exponent="1" scale="-3" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="volume">
+        <listOfUnits>
+          <unit kind="litre" exponent="1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="area">
+        <listOfUnits>
+          <unit kind="metre" exponent="2" scale="-9" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="length">
+        <listOfUnits>
+          <unit kind="metre" exponent="1" scale="-9" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="dimensionless">
+        <listOfUnits>
+          <unit kind="dimensionless" exponent="1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="micromole_per_liter">
+        <listOfUnits>
+          <unit kind="mole" exponent="1" scale="-6" multiplier="1"/>
+          <unit kind="litre" exponent="-1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="one_over_s">
+        <listOfUnits>
+          <unit kind="dimensionless" exponent="1" scale="0" multiplier="1"/>
+          <unit kind="second" exponent="-1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="nanomole_per_liter">
+        <listOfUnits>
+          <unit kind="mole" exponent="1" scale="-9" multiplier="1"/>
+          <unit kind="litre" exponent="-1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="s">
+        <listOfUnits>
+          <unit kind="second" exponent="1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="liter">
+        <listOfUnits>
+          <unit kind="litre" exponent="1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="Compartment" name="Compartment" size="1" units="liter"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="A" name="A" compartment="Compartment" initialConcentration="1000" substanceUnits="substance"/>
+      <species id="B" name="B" compartment="Compartment" initialConcentration="10" substanceUnits="substance"/>
+      <species id="C" name="C" compartment="Compartment" initialConcentration="10" substanceUnits="substance"/>
+      <species id="AB" name="AB" compartment="Compartment" initialConcentration="0" substanceUnits="substance"/>
+      <species id="AC" name="AC" compartment="Compartment" initialConcentration="0" substanceUnits="substance"/>
+      <species id="ABC" name="ABC" compartment="Compartment" initialConcentration="0" substanceUnits="substance"/>
+      <species id="Activation" name="Activation" compartment="Compartment" boundaryCondition="true"/>
+      <species id="ABCoverSUM" name="ABCoverSUM" compartment="Compartment" initialConcentration="0" substanceUnits="substance" boundaryCondition="true"/>
+      <species id="C_mon" name="C_mon" compartment="Compartment" initialConcentration="0" substanceUnits="substance" boundaryCondition="true"/>
+      <species id="B_mon" name="B_mon" compartment="Compartment" initialConcentration="0" substanceUnits="substance" boundaryCondition="true"/>
+      <species id="A_mon" name="A_mon" compartment="Compartment" initialConcentration="0" substanceUnits="substance" boundaryCondition="true"/>
+      <species id="A_NetFlux" name="A_NetFlux" compartment="Compartment" initialConcentration="0" substanceUnits="substance" boundaryCondition="true"/>
+      <species id="B_NetFlux" name="B_NetFlux" compartment="Compartment" initialConcentration="0" substanceUnits="substance" boundaryCondition="true"/>
+      <species id="C_NetFlux" name="C_NetFlux" compartment="Compartment" initialConcentration="0" substanceUnits="substance" boundaryCondition="true"/>
+      <species id="AB_NetFlux" name="AB_NetFlux" compartment="Compartment" initialConcentration="0" substanceUnits="substance" boundaryCondition="true"/>
+      <species id="AC_NetFlux" name="AC_NetFlux" compartment="Compartment" initialConcentration="0" substanceUnits="substance" boundaryCondition="true"/>
+      <species id="ABC_NetFlux" name="ABC_NetFlux" compartment="Compartment" initialConcentration="0" substanceUnits="substance" boundaryCondition="true"/>
+    </listOfSpecies>
+    <listOfParameters>
+      <parameter id="S" name="S" value="1e-06" units="dimensionless"/>
+      <parameter id="inv_tau" name="inv_tau" value="1000" units="dimensionless"/>
+      <parameter id="kf_R0" name="kf_R0" value="1" units="one_over_s"/>
+      <parameter id="kr_R0" name="kr_R0" value="1" units="one_over_s"/>
+      <parameter id="kf_R1" name="kf_R1" value="1" units="one_over_s"/>
+      <parameter id="kr_R1" name="kr_R1" value="1" units="one_over_s"/>
+      <parameter id="kf_R2" name="kf_R2" value="1" units="one_over_s"/>
+      <parameter id="kr_R2" name="kr_R2" value="1" units="one_over_s"/>
+      <parameter id="kf_R3" name="kf_R3" value="1" units="one_over_s"/>
+      <parameter id="kr_R3" name="kr_R3" value="1" units="one_over_s"/>
+      <parameter id="kf_R4" name="kf_R4" value="1" units="one_over_s"/>
+      <parameter id="kr_R4" name="kr_R4" value="1" units="one_over_s"/>
+      <parameter id="u" name="u" value="1" units="nanomole_per_liter"/>
+      <parameter id="t_on" name="t_on" value="0" units="s"/>
+    </listOfParameters>
+    <listOfRules>
+      <assignmentRule variable="Activation">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <divide/>
+            <cn type="integer"> 1 </cn>
+            <apply>
+              <minus/>
+              <cn type="integer"> 1 </cn>
+              <apply>
+                <exp/>
+                <apply>
+                  <times/>
+                  <apply>
+                    <minus/>
+                    <apply>
+                      <minus/>
+                      <csymbol encoding="text" definitionURL="http://www.sbml.org/sbml/symbols/time"> time </csymbol>
+                      <ci> t_on </ci>
+                    </apply>
+                  </apply>
+                  <ci> inv_tau </ci>
+                </apply>
+              </apply>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="ABCoverSUM">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <divide/>
+            <ci> ABC </ci>
+            <apply>
+              <plus/>
+              <ci> A </ci>
+              <ci> B </ci>
+              <ci> C </ci>
+              <ci> S </ci>
+            </apply>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="C_mon">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <ci> C </ci>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="B_mon">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <ci> B </ci>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="A_mon">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <ci> A </ci>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="A_NetFlux">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <minus/>
+            <apply>
+              <minus/>
+              <ci> ReactionFlux0 </ci>
+            </apply>
+            <ci> ReactionFlux1 </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="B_NetFlux">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <minus/>
+            <apply>
+              <minus/>
+              <ci> ReactionFlux0 </ci>
+            </apply>
+            <ci> ReactionFlux3 </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="C_NetFlux">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <minus/>
+            <apply>
+              <minus/>
+              <ci> ReactionFlux1 </ci>
+            </apply>
+            <ci> ReactionFlux2 </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="AB_NetFlux">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <minus/>
+            <ci> ReactionFlux0 </ci>
+            <ci> ReactionFlux2 </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="AC_NetFlux">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <minus/>
+            <ci> ReactionFlux1 </ci>
+            <ci> ReactionFlux3 </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+      <assignmentRule variable="ABC_NetFlux">
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <apply>
+            <plus/>
+            <ci> ReactionFlux2 </ci>
+            <ci> ReactionFlux3 </ci>
+          </apply>
+        </math>
+      </assignmentRule>
+    </listOfRules>
+    <listOfReactions>
+      <reaction id="ReactionFlux0" name="ReactionFlux0" reversible="true">
+        <listOfReactants>
+          <speciesReference species="A"/>
+          <speciesReference species="B"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="AB"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <apply>
+                <minus/>
+                <apply>
+                  <times/>
+                  <ci> u </ci>
+                  <ci> kf_R0 </ci>
+                  <ci> A </ci>
+                  <ci> B </ci>
+                </apply>
+                <apply>
+                  <times/>
+                  <ci> kr_R0 </ci>
+                  <ci> AB </ci>
+                </apply>
+              </apply>
+              <ci> Compartment </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="ReactionFlux1" name="ReactionFlux1" reversible="true">
+        <listOfReactants>
+          <speciesReference species="A"/>
+          <speciesReference species="C"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="AC"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <apply>
+                <minus/>
+                <apply>
+                  <times/>
+                  <ci> kf_R1 </ci>
+                  <ci> A </ci>
+                  <ci> C </ci>
+                </apply>
+                <apply>
+                  <times/>
+                  <ci> kr_R1 </ci>
+                  <ci> AC </ci>
+                </apply>
+              </apply>
+              <ci> Compartment </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="ReactionFlux2" name="ReactionFlux2" reversible="true">
+        <listOfReactants>
+          <speciesReference species="AB"/>
+          <speciesReference species="C"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="ABC"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <apply>
+                <minus/>
+                <apply>
+                  <times/>
+                  <ci> kf_R2 </ci>
+                  <ci> AB </ci>
+                  <ci> C </ci>
+                </apply>
+                <apply>
+                  <times/>
+                  <ci> kr_R2 </ci>
+                  <ci> ABC </ci>
+                </apply>
+              </apply>
+              <ci> Compartment </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+      <reaction id="ReactionFlux3" name="ReactionFlux3" reversible="true">
+        <listOfReactants>
+          <speciesReference species="AC"/>
+          <speciesReference species="B"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="ABC"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+              <times/>
+              <apply>
+                <minus/>
+                <apply>
+                  <times/>
+                  <ci> kf_R3 </ci>
+                  <ci> AC </ci>
+                  <ci> B </ci>
+                </apply>
+                <apply>
+                  <times/>
+                  <ci> kr_R3 </ci>
+                  <ci> ABC </ci>
+                </apply>
+              </apply>
+              <ci> Compartment </ci>
+            </apply>
+          </math>
+        </kineticLaw>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>
